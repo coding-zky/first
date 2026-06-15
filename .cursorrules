@@ -1,0 +1,28 @@
+# .cursorrules — 命名与 API 约束
+
+## 命名约定
+
+### Java 后端
+- 包名: `com.imooc.app.{module}` (全小写)
+- 类名: 大驼峰 — `UserController`, `UserServiceImpl`, `BusinessException`
+- 方法: 小驼峰 — `getUserById`, `findPage`, `createUser`
+- 常量: 全大写 — `MAX_PAGE_SIZE`, `DEFAULT_TIMEOUT`
+- 表名: 小写下划线 — `sys_user`, `order_item`
+- REST 路径: 小写短横线 — `/api/users`, `/api/order-items`
+
+### TypeScript 前端
+- 组件文件: 大驼峰 — `UserListPage.tsx`, `SearchBar.tsx`
+- 工具/API 文件: 小驼峰 — `request.ts`, `user.ts`
+- Hook: `use` 前缀 — `useAuth`, `useUserStore`
+- 变量/函数: 小驼峰 — `userList`, `fetchUsers`
+
+## 禁止 API 约束
+
+- **禁止** Lombok — 手写 getter/setter（Java 25 兼容）
+- **禁止** 多个 `@RestControllerAdvice` — 统一异常处理在 `GlobalExceptionHandler`
+- **禁止** Controller 中 try-catch — 异常交给全局处理器
+- **禁止** 直接返回业务对象 — 必须包装为 `Result<T>`
+- **禁止** Service 层抛 `RuntimeException` — 使用 `BusinessException`
+- **禁止** Class 组件 — 只使用函数组件 + Hooks
+- **禁止** Redux — 使用 Zustand
+- **禁止** 硬编码 API 地址 — 通过 Vite proxy 或环境变量配置

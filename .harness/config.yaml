@@ -1,0 +1,46 @@
+# Harness Configuration
+# AI Coding Agent 代理配置
+
+# 项目信息
+project:
+  name: my-first-project
+  description: 基于 SpringBoot + React 的全栈开发脚手架
+
+# 代理行为配置
+agent:
+  # 启用的技能集（对应 skills/ 目录中的技能）
+  skills:
+    enabled:
+      - using-openspec
+      - brainstorming
+      - writing-plans
+      - executing-plans
+      - test-driven-development
+      - requesting-code-review
+      - finishing-a-development-branch
+
+  # 行为约束
+  behavior:
+    require_design_before_code: true
+    require_tests: true
+    max_file_size: 500
+    commit_style: conventional
+
+  # 工作流配置
+  workflow:
+    default: [brainstorming, writing-plans, executing-plans, requesting-code-review, finishing-a-development-branch]
+
+# 规则文件
+rules: rules.yml
+
+# 模板目录
+templates: templates/
+
+# 文档路径
+docs:
+  product_specs: docs/product-specs/
+  api_specs: docs/api-specs/
+  design_docs: docs/design-docs/
+  ui_specs: docs/ui-specs/
+  exec_plans: docs/exec-plans/
+  knowledge: knowledge/

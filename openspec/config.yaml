@@ -1,0 +1,62 @@
+# OpenSpec Configuration
+# 规范驱动开发项目配置
+
+# OpenSpec 版本
+version: "1.0"
+
+# 项目信息
+project:
+  name: my-first-project
+  language: zh  # 规范文档语言
+
+# 目录配置
+paths:
+  specs: specs/       # 系统规范目录（真理之源）
+  changes: changes/   # 变更提案目录
+  archive: changes/archive/  # 归档目录
+
+# 规范格式
+specs:
+  # 规范文件命名格式
+  format: spec.md
+  # 领域划分（按业务领域组织规范）
+  domains: []
+
+# 变更管理
+changes:
+  # 变更文件夹结构
+  artifacts:
+    - proposal.md   # 变更意图和范围
+    - design.md     # 技术方案和架构决策
+    - tasks.md      # 实现任务清单
+    - specs/        # Delta 规范变更
+
+  # Delta 规范标记
+  delta_sections:
+    - ADDED      # 新增需求
+    - MODIFIED   # 修改需求
+    - REMOVED    # 移除需求
+
+  # 归档配置
+  archive:
+    enabled: true
+    prefix_date: true  # 归档时添加日期前缀 YYYY-MM-DD-
+
+# 工作流配置
+workflow:
+  # 默认工作流：propose → apply → sync → archive
+  default_profile: core
+  profiles:
+    core:
+      - propose   # 创建变更提案
+      - explore   # 探索替代方案
+      - apply     # 应用变更
+      - sync      # 同步规范
+      - archive   # 归档变更
+    expanded:
+      - new       # 新建变更
+      - ff        # 快速填充
+      - continue  # 增量继续
+      - apply     # 应用变更
+      - verify    # 验证变更
+      - archive   # 归档变更

@@ -1,0 +1,39 @@
+# Agent Rules — AI 编码代理行为规范
+
+## 项目结构约束
+
+- 后端代码在 `backend/` 目录下，Maven 多模块结构
+- 前端代码在 `frontend/` 目录下，Vite + React
+- 文档在 `docs/` 目录下按类型分目录
+- 所有 Java 包名统一使用 `com.imooc.app`
+
+## 必须遵循
+
+1. **先设计，再编码** — 编写代码前必须对齐需求并生成设计文档
+2. **规范驱动** — 功能变更遵循 OpenSpec 流程（propose → apply → sync → archive）
+3. **统一响应** — 所有 API 返回 `Result<T>` 格式
+4. **全局异常** — 异常统一由 `GlobalExceptionHandler` 处理，不在 Controller 中 try-catch
+5. **参数校验** — DTO 使用 Jakarta Validation，Controller 使用 `@Valid`
+
+## 禁止事项
+
+- 禁止跳过设计阶段直接编码
+- 禁止编写没有测试的代码
+- 禁止在计划中使用 TBD/TODO 占位符
+- 禁止在没有审查的情况下合并代码
+- 禁止引入 Lombok（兼容 Java 25）
+- 禁止创建多个 `@RestControllerAdvice` 类
+
+## 工作流
+
+```
+brainstorming → writing-plans → executing-plans → requesting-code-review → finishing
+```
+
+## 参考文档
+
+- 产品概述: `docs/product-specs/overview.md`
+- API 规范: `docs/api-specs/`
+- 技术选型: `docs/design-docs/tech-selection-adr.md`
+- 编码规范: `knowledge/conventions.md`
+- 经验教训: `knowledge/lessons-learned.md`
