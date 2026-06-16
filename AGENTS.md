@@ -7,7 +7,7 @@
 
 | 目录 | 类型 | 仓库地址 | 说明 |
 |------|------|----------|------|
-| `frontend/` | **submodule** | `https://github.com/coding-zky/first_frontend.git` | Next.js 14 (App Router) + TypeScript 前端 SPA |
+| `frontend/` | **submodule** | `https://github.com/coding-zky/first_frontend.git` | Next.js 15 (App Router) + React 19 + TypeScript 前端 SPA |
 | `backend/` | **submodule** | `https://github.com/coding-zky/first_backend.git` | SpringBoot 3.4 后端四层架构（common/dao/service/api） |
 | `docs/product-specs/` | 本地 | — | 产品需求文档 |
 | `docs/api-specs/` | 本地 | — | API 接口规范 |
@@ -34,7 +34,7 @@ git submodule update --remote backend
 
 ### frontend/ — Next.js 前端
 
-- **技术栈**: Next.js 14 (App Router) / React 18 / TypeScript / Ant Design 5 / Zustand
+- **技术栈**: Next.js 15 (App Router) / React 19 / TypeScript / Ant Design 6 / Zustand
 - **包管理**: npm (`package.json`)
 - **启动**: `cd frontend && npm install && npm run dev`
 - **端口**: 3000，`/api` 通过 rewrites 代理到后端 8080
@@ -86,9 +86,9 @@ cd frontend && npm install && npm run dev
 
 ### 选型决策
 
-**前端：Next.js 14 (App Router)** — AI 生成质量最高 + 团队 React 经验直接复用 + Vercel 零配置部署
+**前端：Next.js 15 (App Router) + React 19** — AI 生成质量最高 + 团队 React 经验直接复用 + Vercel 零配置部署
 
-| 维度 | Next.js 14 | Nuxt 3 |
+| 维度 | Next.js 15 | Nuxt 3 |
 |------|-----------|--------|
 | AI 生成质量 | **9/10** | 6/10 |
 | 框架约定强度 | **8/10** | 8/10 |

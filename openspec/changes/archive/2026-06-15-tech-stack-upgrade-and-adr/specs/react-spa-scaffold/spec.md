@@ -1,4 +1,4 @@
-## Requirements
+## MODIFIED Requirements
 
 ### Requirement: Vite + React + TypeScript 工程结构
 
@@ -92,3 +92,12 @@
 
 - **WHEN** 登录成功后调用 `useStore.getState().setUser(userInfo)`
 - **THEN** 所有使用 `useStore` 的组件 SHALL 自动重渲染获取最新用户信息
+
+---
+
+## REMOVED Requirements
+
+### Requirement: Vite 代理配置
+
+**Reason**: Vite 已被 Next.js 替代，代理功能改由 Next.js rewrites 实现
+**Migration**: 使用 `next.config.mjs` 中的 `rewrites` 配置替代 `vite.config.ts` 中的 `proxy` 配置
